@@ -1,0 +1,49 @@
+spring:
+  # 所有环境通用的配置，放在这里
+
+  # 404 交给异常处理器处理
+  mvc:
+    throw-exception-if-no-handler-found: true
+  profiles:
+    active: dev
+  resources:
+    add-mappings: false
+
+
+##########################################################################
+#
+# mybatis配置
+#
+##########################################################################
+mybatis:
+  type-aliases-package: org.mark.demo.po
+  mapper-locations: classpath:/mapping/**.xml
+  configuration:
+    use-generated-keys: true
+    use-column-label: true
+    map-underscore-to-camel-case: true
+
+##########################################################################
+#
+# mapper配置
+#
+##########################################################################
+mapper:
+  mappers:
+  - org.mark.demo.core.Mapper
+  not-empty: false
+  identity: MYSQL
+
+
+
+##########################################################################
+#
+# pagehelper配置
+#
+##########################################################################
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  page-size-zero: true
