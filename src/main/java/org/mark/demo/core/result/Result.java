@@ -1,4 +1,4 @@
-package com.company.project.core;
+package org.mark.demo.core.result;
 
 import com.alibaba.fastjson.JSON;
 
